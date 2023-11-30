@@ -1,18 +1,22 @@
 
-// Challenge: Create a function called `calculateAverage` that takes in an array of numbers and returns the average of those numbers.
-// The function should return a number rounded to two decimal places.
+/**
+ * English Title: Find Missing Number
+ * 
+ * Description: Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
+ * 
+ * Example:
+ * Input: [3,0,1]
+ * Output: 2
+ * 
+ * Input: [9,6,4,2,3,5,7,0,1]
+ * Output: 8
+ */
 
-// Example usage:
-// const numbers = [5, 10, 15, 20];
-// const average = calculateAverage(numbers);
-// console.log(average); // Output: 12.50
-
-function calculateAverage(numbers: number[]): number {
-  const sum = numbers.reduce((acc, curr) => acc + curr, 0);
-  const average = sum / numbers.length;
-  return Number(average.toFixed(2));
+function findMissingNumber(nums: number[]): number {
+  const n = nums.length;
+  let sum = (n * (n + 1)) / 2;
+  for (let i = 0; i < n; i++) {
+    sum -= nums[i];
+  }
+  return sum;
 }
-
-const numbers = [5, 10, 15, 20];
-const average = calculateAverage(numbers);
-console.log(average); // Output: 12.50
